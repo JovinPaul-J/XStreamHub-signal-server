@@ -3,10 +3,10 @@ const WebSocket = require('ws');
 const cors = require('cors');
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./serviceAccountKey.json');
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG_JSON);
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(firebaseConfig),
 });
 
 const app = express();

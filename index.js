@@ -21,6 +21,10 @@ const wss = new WebSocket.Server({ server });
 
 const clients = new Map(); // uid -> socket
 
+app.get('/', (req, res) => {
+  res.send('WebRTC signaling server is running.');
+});
+
 wss.on('connection', (socket) => {
   let uid = null;
 
